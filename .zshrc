@@ -45,7 +45,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras debian autojump last-working-dir screen vi-mode wd history-substring-search dirhistory python)
+plugins=(git git-extras debian autojump last-working-dir screen vi-mode wd history-substring-search dirhistory python git-flow)
 
 
 # User configuration
@@ -84,11 +84,12 @@ local knownhosts
 knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
 zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 #powerline
-if [[ -r /usr/local/lib/python2.7/dist-packages/powerline_status-2.3.dev9999+git.63af1456b4cf5f69f680ea227545faa6d2afef90-py2.7.egg/powerline/bindings/zsh/powerline.zsh
- ]]; then
-        source /usr/local/lib/python2.7/dist-packages/powerline_status-2.3.dev9999+git.63af1456b4cf5f69f680ea227545faa6d2afef90-py2.7.egg/powerline/bindings/zsh/powerline.zsh
- 
-    fi
+POWERLINE_PATH=$(find /usr/local/lib/python2.7 |grep "/zsh/powerline.zsh" | tail -1)
+
+if [ -r $POWERLINE_PATH ];
+	 then
+        source $POWERLINE_PATH 
+fi
 
 
 # bind k and j for VI mode

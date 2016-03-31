@@ -38,6 +38,11 @@ ZSH_THEME="agnoster"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
+#History file size setings
+HISTFILE=$HOME/.zhistory
+HISTSIZE=50000
+SAVEHIST=100000
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
